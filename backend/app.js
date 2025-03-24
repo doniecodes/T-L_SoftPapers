@@ -13,7 +13,7 @@ app.use(cors({
 }))
 app.use(express.json());
 
-const PORT = 400 || process.env.PORT
+const PORT = process.env.PORT || 4000
 
 mongoose.connect(process.env.MONGO_URI)
 .then((result)=> {
