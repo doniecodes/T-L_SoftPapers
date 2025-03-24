@@ -11,7 +11,6 @@ export const loader = async ({ request })=> {
 const Checkouts = () => {
   const { cart } = UseCartContext();
   const [ items, setItems ] = useState();
-  console.log(cart)
 
   const form = useRef(null);
 
