@@ -13,9 +13,11 @@ app.use(cors({
 }))
 app.use(express.json());
 
+const PORT = 400 || process.env.PORT
+
 mongoose.connect(process.env.MONGO_URI)
 .then((result)=> {
-    app.listen(4000, ()=> {
+    app.listen(PORT, ()=> {
         console.log("Listening on PORT 4000")
     })
 }).catch((err)=> {
