@@ -12,7 +12,7 @@ export const FormCustomHooks = () => {
 
     // Login
     const login = async (email, password)=> {
-        const res = await fetch("http://localhost:4000/api/user/login", {
+        const res = await fetch("https://tandlsoftpapers-backend.onrender.com/api/user/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +40,7 @@ export const FormCustomHooks = () => {
 
     // Create Document
     const create = async (doc)=> {
-        const res = await fetch("http://localhost:4000/api/papers/create", {
+        const res = await fetch("https://tandlsoftpapers-backend.onrender.com/api/papers/create", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -8,7 +8,7 @@ const userRoutes = require("../backend/routes/userRoutes")
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://tandlsoftpapers-backend.onrender.com"],
     methods: [ "GET", "POST", "PUT", "PATCH", "DELETE" ]
 }))
 app.use(express.json());

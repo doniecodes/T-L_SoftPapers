@@ -20,7 +20,7 @@ const SingleProduct = () => {
     useEffect(()=> {
         const getItem = async ()=> {
             setLoading(true)
-            const res = await fetch(`http://localhost:4000/api/papers/${id}`);
+            const res = await fetch(`https://tandlsoftpapers-backend.onrender.com/api/papers/${id}`);
             const data = await res.json();
             setItem(data.paper)
 
