@@ -1,12 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link, NavLink } from "react-router-dom"
-import { FaShoppingBasket, FaShoppingBag, FaHamburger, FaBars } from "react-icons/fa";
+import { FaShoppingBasket, FaShoppingBag, FaHamburger, FaBars, FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import Cart from "../pages/Cart"
 import { UseCartContext } from '../context/UseCartContext';
+import logoImage from "../images/logo.png"
 
 
 const Header = () => {
-  const { dispatch, cart, totalItems, quantity } = UseCartContext();
+  const { dispatch, cart, quantity } = UseCartContext();
 
    const cartRef = useRef(null);
   
@@ -23,6 +24,9 @@ const Header = () => {
       color: isActive ? "hsl(172, 83%, 32%)" : "hsl(0, 0%, 30%)"
     }
   }
+  
+  const itemsInCart = JSON.parse(localStorage.getItem("items"));
+  const totalItems = itemsInCart && itemsInCart.length !== 0 ? itemsInCart.length : 0
 
   const mobileNav = useRef(null);
   const hamburger = useRef(null)
@@ -41,13 +45,39 @@ const Header = () => {
     }
   }
 
+  const headerInfo = useRef(null);
+      useEffect(()=> {
+        window.addEventListener("scroll", ()=> {
+          if(window.pageYOffset > 50) {
+            headerInfo.current.style.display = "none";
+          } else {
+            headerInfo.current.style.display = "flex";
+          }
+        })
+      }, [])
+
   return (
     <>
     
     <header className="header">
-    <Link to="/">
-    <img src="images/logo.png" alt="" className="logo" />
-    </Link>
+      <div className="header-info" ref={headerInfo}>
+          <div>
+            <FaPhone />
+          <a href="tel:079 103 5523">+2779 103 5523</a>
+          </div>
+          <div>
+            <FaEnvelope />
+          <a href="mailto:tandlsoftpapers@gmail.com">tandlsoftpapers@gmail.com</a>
+          </div>
+          <div>
+          <a href="https://wa.link/25j4pe" target="blank"><FaWhatsapp /></a>
+          </div>
+      </div>
+
+      <div className="header-flex">
+      <Link to="/">
+      <img src={logoImage} alt="" className="logo" />
+      </Link>
 
       <nav className="nav">
         <ul className="nav-list">
@@ -106,7 +136,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      
+      </div>
     </header>
 
     <Cart cartRef={cartRef}

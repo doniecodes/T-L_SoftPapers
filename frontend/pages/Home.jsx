@@ -25,17 +25,22 @@ const Home = () => {
       <div className="hero">
       <div className="hero-content-div">
         <h1 className='heading-1'>Experience The Perfect Balance Of Strength And Softness</h1>
-        <p class="text hero-text">
+        <p className="text hero-text">
           At T&L-SoftPapers, we believe that comfort shouldn't compromise durability. Our tissues are designed to provide the gentle touch you desire while standing up to everyday challenges.
           </p>
         <div className="hero-btns">
         <Link className='hero-btn' to="/products">
         Order Now <span> &darr; </span>
         </Link>
-        <Link className='hero-btn whatsapp-btn' to="/contact">
+        <Link className='hero-btn whatsapp-btn' to="https://wa.link/25j4pe" target="_blank">
           Get a free quote
         </Link>
         </div>
+      </div>
+
+      <div className="hero-image-div">
+        <img src="../images/boy.png" alt="" />
+        <img src="../images/boy-small.png" alt="" className='hero-image-small'/>
       </div>
       </div>
      </section>
@@ -48,7 +53,7 @@ const Home = () => {
       </div>
       <div className="home-content-div home-content-div-2">
         <h1 className='heading-1-2'>Experience The Best In Tissue Quality</h1>
-        <p class="text hero-text">
+        <p className="text hero-text">
         At T&L-SoftPapers, we pride ourselves on delivering tissues that combine exceptional strength with unparalleled softness.
         </p>
         <Link className='hero-btn' to="/products">

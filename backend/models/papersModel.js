@@ -17,11 +17,11 @@ const papersSchema = new Schema({
     packages: {
         type: Array,
         required: false,
-        default: [ 12, 24, 48 ]
+        default: [ 10, 18, 24, 48 ]
     },
     image: {
         type: String,
-        required: true,
+        required: false,
     },
     images: {
         type: String,

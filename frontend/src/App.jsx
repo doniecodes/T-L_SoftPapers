@@ -6,7 +6,7 @@ import Products from "../pages/Products"
 import SingleProduct from "../pages/SingleProduct"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
-import Checkouts from "../pages/Checkouts"
+import Checkouts, { loader as checkoutLoader } from "../pages/Checkouts"
 import Admin, { loader as adminLoader } from "../pages/Admin"
 import Dashboard from '../pages/Dashboard'
 import Login, { loader as loginLoader } from '../pages/Login'
@@ -24,7 +24,8 @@ const router=createBrowserRouter(
 
       <Route path="contact" element={<Contact />} />
 
-      <Route path="checkouts" element={<Checkouts />} />
+      <Route path="checkouts" element={<Checkouts />}
+      loader={checkoutLoader} />
 
       <Route path="login" element={<Login />}
       loader={loginLoader} />

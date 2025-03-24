@@ -20,3 +20,13 @@ export const userAuthorized = async ({request}) => {
 
     return null;
 }
+
+export const checkoutProtect = async ({request}) => {
+    const items = JSON.parse(localStorage.getItem("items"));
+
+    if(items === null || items.length === 0){
+        return redirect("/products")
+    }
+
+    return null;
+}

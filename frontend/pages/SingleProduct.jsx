@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { FaShoppingCart, FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import { UseCartContext } from '../context/UseCartContext';
+import { toast, ToastContainer } from "react-toastify"
 
 const SingleProduct = () => {
     const { dispatch, cart } = UseCartContext();
     const { id } = useParams();
     
     const [ item, setItem ] = useState(null);
-    const [ error, setError ] = useState(null);
     const [ loading, setLoading ] = useState(false);
-    const [ packs, setPacks ] = useState([]);
+    const [ error, setError ] = useState(false);
+    const [ packs, setPacks ] = useState(null);
+    const [ packPrice, setPackPrice ] = useState(null);
     const [ quantity, setQuantity ] = useState(1);
     const [ imgSrc, setImgSrc ] = useState("")
+    const [ localItems, setLocalItems ] = useState(JSON.parse(localStorage.getItem("items")) || []);
 
     useEffect(()=> {
         const getItem = async ()=> {
@@ -31,14 +34,27 @@ const SingleProduct = () => {
               }
         }
         getItem();
-    }, [id])
+    }, [id, localItems])
 
     const handlePacks = (e)=> {
         e.target.classList.toggle("active");
         if(e.target.classList.contains("active")){
             setPacks((prev)=> {
-                return [...prev, e.target.innerText]
+                return [e.target.innerText];
             })
+        }
+
+        if(e.target.innerText === "10"){
+            setPackPrice(item.prices[0])
+        }
+        if(e.target.innerText === "18"){
+            setPackPrice(item.prices[1])
+        }
+        if(e.target.innerText === "24"){
+            setPackPrice(item.prices[2])
+        }
+        if(e.target.innerText === "48"){
+            setPackPrice(item.prices[3])
         }
     }
 
@@ -54,36 +70,45 @@ const SingleProduct = () => {
     }
 
     const handleAddToCart = ()=> {
-            const localItems = JSON.parse(localStorage.getItem("items"))
-            const search = localItems !== null && localItems.find((p)=> p.id === id);
-            if(search){
-                window.alert("Item already in Cart.");
-            }
-            dispatch({ type: "ADD_TO_CART", payload: {item: item} });
-            localStorage.setItem("items", JSON.stringify(cart));
+        const search = cart.length !== 0 && cart.find((p)=> p._id === item._id);
+
+        if(packs === null){
+            toast.error("select a package first");
+            return
+        }
+
+        if(search){
+           /*  window.alert("Item already in Cart."); */
+            toast.error("Item already in cart")
+            return;
+        }
+        
+        dispatch({ type: "ADD_TO_CART", payload: { ...item, package: packs, price:packPrice, qty: quantity } });
+        setLocalItems((prev)=> {
+            return [ ...prev, { ...item, package: packs, price:packPrice, qty: quantity } ]
+        })
+        toast.success("Product added to cart");
     }
+    localStorage.setItem("items", JSON.stringify(cart));
+
 
   return (
     <>
+        <ToastContainer />
         <div className="container">
         <section className="single-product-section">
 
+        { loading && <div className='empty-list'>Loading Product Details...</div> }
+
             <div className="single-product-wrapper">
-
-                { loading && <div className='empty-list'>Loading Product Details...</div> }
-
               { item &&
                     <>
                 <div className="single-product-image-div">
-                    <div className="product-thumbnails">
+                    {/* <div className="product-thumbnails">
                         <img
                         onClick={(e)=> setImgSrc(e.target.src)} src={item.image} alt=""
                         className='active'/>
-                        {/* { item.images.map((img)=> (
-                            <img
-                            onClick={(e)=> setImgSrc(e.target.src)} src={img} alt="" />
-                        )) } */}
-                    </div>
+                    </div> */}
                     <img src={imgSrc === "" ? imgSrc : item.image } alt="" className='single-product-image'/>
                 </div>
                 <div className="single-product-content">
@@ -91,16 +116,16 @@ const SingleProduct = () => {
                         { item.title }
                     </h3>
                     <span className="single-product-price">
-                        R{ item.price }
+                        R{ packPrice === null ? item.prices[0] : packPrice }
                     </span>
                     <p className="single-product-desc">
                         { item.description }
                     </p>
                     <div className="pack-sizes">
-                        <p>select packgage:</p>
+                        <p>select packgage: <i><small>to compare prices</small></i></p>
                         <div className="pack-sizes-btns">
                             { item.packages.map((pack)=> (
-                                <button className=''
+                                <button key={pack}
                                 onClick={handlePacks}>{pack}</button>
                             )) }
                         </div>

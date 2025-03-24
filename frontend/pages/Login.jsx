@@ -20,7 +20,7 @@ const Login = () => {
 
        await login({ email, password });
     }
-
+    
     const errorMsg = useLoaderData();
 
   return (
@@ -31,7 +31,7 @@ const Login = () => {
         <form onSubmit={handleSubmit} action="" className='contact-form'>
           <h2 className="form-heading">
             Log In
-            <span class="heading-style"></span>
+            <span className="heading-style"></span>
           </h2>
 
           { errorMsg && <div className='error error-redirect'>{errorMsg}</div> }

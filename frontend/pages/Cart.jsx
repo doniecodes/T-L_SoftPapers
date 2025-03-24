@@ -1,22 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { UseCartContext } from '../context/UseCartContext'
 
 const Cart = (props) => {
-    const { cart } = UseCartContext();
-    console.log(cart);
+    const { cart, dispatch, totalPrice } = UseCartContext();
     const [ qty, setQty ] = useState(1);
+    const [ prices, setPrices ] = useState([]);
 
     const changeQty = (text)=> {
         if(text === "-" && qty !== 1){
-            setQty( qty - 1 )
+            setQty( qty - 1 );
         }
         if(text === "+" && qty < 6){
-            setQty( qty + 1 )
+            setQty( qty + 1 );
         }
     }
+
+    const handleDelete = (id)=> {
+        dispatch({ type: "DELETE_ITEM", payload: id })
+    }
+
+    useEffect(()=> {
+        cart.map((item)=> {
+            return setPrices((prev)=> {
+                return [ ...prev, item.price]
+            })
+        })
+        dispatch({ type: "SET_TOTAL_PRICE", payload: 0})
+    }, [dispatch, totalPrice]);
 
   return (
     <div className="cart-container" ref={props.cartRef}>
@@ -35,34 +48,34 @@ const Cart = (props) => {
         </div> }
 
             { cart.length !== 0 && cart.map((item)=> (
-                <div className="cart-item">
+                <div className="cart-item" key={item._id}>
                 <img className='cart-item-image'
                  src="../images/picture(8).png"
                  alt="" />
                 <div className="cart-item-content">
                     <h4 className="cart-item-name">
                         { item.title }
-                        <button>
+                        <button onClick={()=> handleDelete(item._id)}>
                         <FaTrash className='trash-icon'/>
                         </button>
                     </h4>
                     <p className="cart-item-desc">
-                        { item.description } 
+                        {/* { item.description }  */}
                     </p>
                     <p className="cart-item-package">
                         <span>Packages:</span>
-                        { item.packages }
+                        { item.package }
                     </p>
                     <div className="cart-item-qty-btns">
                         <button>
                             <span
                             onClick={(e)=> changeQty(e.target.innerText)} className="cart-qty-minus">-</span>
-                            <span className="cart-qty">{qty}</span>
+                            <span className="cart-qty">{item.qty}</span>
                             <span
                             onClick={(e)=> changeQty(e.target.innerText)} className="cart-qty-plus">+</span>
                         </button>
                         <div className="cart-item-price">
-                            { item.price }
+                            R{ item.price }
                         </div>
                     </div>
                 </div>
@@ -72,12 +85,11 @@ const Cart = (props) => {
         </div>
 
         {/* Cart Totals and Checkout */}
-
         { cart.length !== 0 &&
             <div className="cart-totals-wrapper">
             <div className="cart-totals-div">
-                <p><span>Subtotal:</span> R690</p>
-                <p><span>Total:</span> R690</p>
+                <p><span>Subtotal:</span>{totalPrice}</p>
+                <p><span>Total:</span>{totalPrice}</p>
                 <p><span>Delivery:</span> None</p>
             </div>
     
@@ -87,8 +99,7 @@ const Cart = (props) => {
                 Checkout
             </Link>
             </div> }
-
-    </div>
+        </div>
   )
 }
 

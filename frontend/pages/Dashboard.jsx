@@ -35,10 +35,7 @@ const Dashboard = () => {
         const price = formData.get("price");
         const description = formData.get("description");
         const image = formData.get("image");
-        const otherImages = imagesSrc.map((image)=> {
-            return image;
-        })
-        
+           
         await create({
           title, price, description, image:imgSrc
         })
@@ -54,7 +51,7 @@ const Dashboard = () => {
       onSubmit={handleSubmit}
       className="add-products-form">
         <h2 className="add-products-form-heading">Add Product
-        <span class="heading-style"></span>
+        <span className="heading-style"></span>
         </h2>
 
         <div className="admin-form-group">
