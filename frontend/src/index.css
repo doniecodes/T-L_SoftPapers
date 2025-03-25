@@ -408,13 +408,13 @@ body ::-webkit-scrollbar-thumb {
     margin-left: 0.5rem;
     font-weight: bold;
 }
-/* .hero-btn.whatsapp-btn {
+.hero-btn.whatsapp-btn {
     background-color: #fff;
     color: hsl(172, 83%, 32%);
     width: 160px;
     box-shadow: 5px 5px 8px -5px hsl(0, 0%, 60%);
 }
- */
+
 /* Social Proof Section */
 .social-proof-section {
     width: 100%;
