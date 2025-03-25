@@ -67,7 +67,7 @@ const About = () => {
             <span className="heading-style"></span>
         </h2>
         <div className="gallery-wrapper">
-          <img src="../images/bg1.jpg" alt="" />
+          <img src="/images/bg1.jpg" alt="" />
           <img src="../images/bg2.jpg" alt="" />
           <img src="../images/bg3.jpg" alt="" />
           <img src="../images/tissues1.jpg" alt="" />
