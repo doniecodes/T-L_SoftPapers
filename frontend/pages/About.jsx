@@ -4,6 +4,15 @@ import machineImage from "../images/bg2.jpg"
 import bossImage from "../images/boss.jpg"
 import sonImage from "../images/son.jpg"
 
+import image1 from "../images/bg1.jpg"
+import image2 from "../images/bg2.jpg"
+import image3 from "../images/bg3.jpg"
+import image4 from "../images/tissues1.jpg"
+import image5 from "../images/tissues2.jpg"
+import image6 from "../images/tissues3.jpg"
+import image7 from "../images/tissues4.jpg"
+import image8 from "../images/tissues5.jpg"
+
 const About = () => {
   return (
     <>
@@ -67,14 +76,14 @@ const About = () => {
             <span className="heading-style"></span>
         </h2>
         <div className="gallery-wrapper">
-          <img src="/images/bg1.jpg" alt="" />
-          <img src="../images/bg2.jpg" alt="" />
-          <img src="../images/bg3.jpg" alt="" />
-          <img src="../images/tissues1.jpg" alt="" />
-          <img src="../images/tissues2.jpg" alt="" />
-          <img src="../images/tissues3.jpg" alt="" />
-          <img src="../images/tissues4.jpg" alt="" />
-          <img src="../images/tissues5.jpg" alt="" />
+          <img src={image1} alt="" />
+          <img src={image2} alt="" />
+          <img src={image3} alt="" />
+          <img src={image4} alt="" />
+          <img src={image5} alt="" />
+          <img src={image6} alt="" />
+          <img src={image7} alt="" />
+          <img src={image8} alt="" />
           {/* <img src="../images/boss.jpg" alt="" />
           <img src="../images/son.jpg" alt="" /> */}
         </div>
