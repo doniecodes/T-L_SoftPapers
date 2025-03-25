@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import { FaMap, FaMapMarker } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { toast, ToastContainer } from "react-toastify"
+import contactimage from "../images/papers3.jpg"
+import contactimage2 from "../images/papers_1.webp"
 
 const Contact = () => {
 
@@ -32,9 +34,9 @@ const Contact = () => {
     <section className="contact-section">
       <div className="contact-image-div">
         <img className='contact-image'
-        src="../images/papers3.jpg" alt="" />
+        src={contactimage} alt="" />
         <img className='contact-image'
-        src="../images/papers_1.webp" alt="" />
+        src={contactimage2} alt="" />
       </div>
 
       <div className="contact-form-wrapper">

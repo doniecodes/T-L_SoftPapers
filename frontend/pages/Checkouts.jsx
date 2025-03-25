@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { toast, ToastContainer } from "react-toastify"
 import { checkoutProtect } from '../utils/utils';
 import { UseCartContext } from '../context/UseCartContext';
+import checkoutimage from "../images/checkout2.jpg";
 
 export const loader = async ({ request })=> {
   return await checkoutProtect(request);
@@ -42,7 +43,7 @@ const Checkouts = () => {
       <section className="checkout-section">
 
         <div className="checkout-img-div">
-          <img src="../images/checkout2.jpg" alt="" className="checkout-img" />
+          <img src={checkoutimage} alt="" className="checkout-img" />
         </div>
 
         <div className="checkout-content">

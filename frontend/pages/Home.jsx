@@ -132,7 +132,7 @@ const Home = () => {
         <div className="faqs-wrapper">
           <details>
             <summary>What are your shipping options?<div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
-            <p className="answer">We offer standard and expedited shipping options. Standard shipping typically takes 5-7 business days, while expedited shipping can arrive in 2-3 business days. You can choose your preferred option at checkout.</p>
+            <p className="answer">We offer a standard shipping option which typically takes a few hours and maybe a day depending on where you live. You can opt for shipping at checkout.</p>
           </details>
           <details>
             <summary>What products do you offer? <div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
