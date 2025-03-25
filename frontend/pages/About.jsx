@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import machineImage from "../images/bg2.jpg"
+import bossImage from "../images/boss.jpg"
+import sonImage from "../images/son.jpg"
 
 const About = () => {
   return (
@@ -11,7 +14,7 @@ const About = () => {
             <span className="heading-style"></span>
           </h2>
         <div className="about-us-wrapper">
-          <img src="../images/bg2.jpg" alt="boss" className='about-image' />
+          <img src={machineImage} alt="machine" className='about-image' />
           <div className="about-content">
             <div className="about-text">
               <h4>Overview</h4>
@@ -46,12 +49,12 @@ const About = () => {
         </h2>
         <div className="team-wrapper">
           <figure className="player">
-            <img src="../images/boss.jpg" alt="" className='player-img'/>
+            <img src={bossImage} alt="boss" className='player-img'/>
             <figcaption className='player-name'>Mr Lesley</figcaption>
             <figcaption className='player-profession'>- Boss</figcaption>
           </figure>
           <figure className="player">
-            <img src="../images/son.jpg" alt="" className='player-img'/>
+            <img src={sonImage} alt="son" className='player-img'/>
             <figcaption className='player-name'>Mr Lesley's son</figcaption>
             <figcaption className='player-profession'>- Manufacturer</figcaption>
           </figure>

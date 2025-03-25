@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom"
 import { FaChevronLeft, FaChevronRight, FaMinus, FaPlus, FaUser } from "react-icons/fa"
 import HeaderHome from '../components/HeaderHome';
 import Footer from '../components/Footer';
+import heroImage from "../images/boy.png";
+import heroImage2 from "../images/papers_3.jpg";
 
 const Home = () => {
 
@@ -39,8 +41,7 @@ const Home = () => {
       </div>
 
       <div className="hero-image-div">
-        <img src="../images/boy.png" alt="" />
-        <img src="../images/boy-small.png" alt="" className='hero-image-small'/>
+        <img src={heroImage} alt="" />
       </div>
       </div>
      </section>
@@ -49,7 +50,7 @@ const Home = () => {
     <div className="container">
       <section className="home-section-2">
       <div className="home-image-div">
-        <img className='home-image-2' src="../images/papers_3.jpg" alt="" />
+        <img className='home-image-2' src={heroImage2} alt="" />
       </div>
       <div className="home-content-div home-content-div-2">
         <h1 className='heading-1-2'>Experience The Best In Tissue Quality</h1>
