@@ -17,7 +17,6 @@ const AdminHeader = () => {
         <div className="container">
             <header className="admin-header">
                 <NavLink to="." >Dashboard</NavLink>
-                <NavLink to="/admin/filestack" >Filestack</NavLink>
                 <NavLink onClick={handleLogout}>Logout</NavLink>
             </header>
         </div>

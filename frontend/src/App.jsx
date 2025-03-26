@@ -10,7 +10,6 @@ import Checkouts, { loader as checkoutLoader } from "../pages/Checkouts"
 import Admin, { loader as adminLoader } from "../pages/Admin"
 import Dashboard from '../pages/Dashboard'
 import Login, { loader as loginLoader } from '../pages/Login'
-import Filestack from '../pages/Filestack'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +33,6 @@ const router=createBrowserRouter(
       <Route path="admin" element={<Admin />}>
       <Route index element={<Dashboard />}
       loader={adminLoader}/>
-      <Route path="filestack" element={<Filestack />}/>
       </Route>
 
     </Route>
