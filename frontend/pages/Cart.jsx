@@ -50,7 +50,7 @@ const Cart = (props) => {
             { cart.length !== 0 && cart.map((item)=> (
                 <div className="cart-item" key={item._id}>
                 <img className='cart-item-image'
-                 src="../images/picture(8).png"
+                 src={item.image}
                  alt="" />
                 <div className="cart-item-content">
                     <h4 className="cart-item-name">
