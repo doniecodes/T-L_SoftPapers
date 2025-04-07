@@ -131,12 +131,13 @@ const Home = () => {
         <p className='section-text'>Find answers to your questions about our products, shipping, and return policies.</p>
         <div className="faqs-wrapper">
           <details>
-            <summary>What are your shipping options?<div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
-            <p className="answer">We offer a standard shipping option which typically takes a few hours and maybe a day depending on where you live. You can opt for shipping at checkout.</p>
+            <summary>What are your deliery options?<div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
+            <p className="answer">
+            Delivery is free within an area of 10km radius from our warehouse. We also offer a standard delivery option which typically takes a few hours and maybe a day depending on where you live. You can opt for delivery at <Link to="/checkout">checkout.</Link></p>
           </details>
           <details>
             <summary>What products do you offer? <div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
-            <p className="answer">We manufacture a variety of tissue products, including facial tissues, paper towels, and toilet paper. All our products are made from high-quality materials to ensure softness and durability. Explore our product range on the products section.</p>
+            <p className="answer">In the near future we will be producing paper towels and facial tissues. Communication will be made as soon as production has taken place. All our products are made from high-quality materials to ensure softness and durability. Explore our product range on the <Link to="/products">products</Link> page.</p>
           </details>
           <details>
             <summary>What is your return policy? <div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
@@ -148,7 +149,7 @@ const Home = () => {
           </details>
           <details>
             <summary>Do you offer discounts? <div className="summary-btns"> <span><FaPlus /></span> <span><FaMinus /></span> </div> </summary>
-            <p className="answer">Yes, we offer discounts. Only bulk orders may qualify for additional savings.</p>
+            <p className="answer">bulk buying comes with discount depending on how many you buy. Contact us before making bulk buying in order to negotiate for a satisfied discount.</p>
           </details>
 
           {/* <div className="more-questions-div">
