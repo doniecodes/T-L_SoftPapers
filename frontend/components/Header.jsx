@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link, NavLink } from "react-router-dom"
-import { FaShoppingBasket, FaShoppingBag, FaHamburger, FaBars, FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaShoppingBasket, FaShoppingBag, FaHamburger, FaBars, FaPhone, FaEnvelope, FaWhatsapp, FaChevronDown } from "react-icons/fa";
 import Cart from "../pages/Cart"
 import { UseCartContext } from '../context/UseCartContext';
 import logoImage from "../images/logo.png"

@@ -1366,6 +1366,19 @@ iframe {
     .gallery-wrapper img {
         max-width: 200px;
     }
+
+    .single-product-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: flex-start;
+        margin: 0 auto;
+    }
+    .single-product-content {
+        margin: 0 auto;
+        max-width: 600px;
+        margin: 0 auto;
+    }
 }
 /* Media queries 700px*/ 
 @media (max-width: 600px) {
@@ -1480,7 +1493,7 @@ iframe {
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
-        justify-content: center;
+        justify-content: flex-start;
     }
     .single-product-image {
         width: 250px;
@@ -1488,17 +1501,6 @@ iframe {
         object-fit: cover;
         aspect-ratio: 1;
         border-radius: 0.5rem;
-    }
-    .single-product-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 100%;
-    }
-    .to-cart-btns {
-        flex-direction: column;
-        align-items: center;
     }
     .qty-controls div button{
         padding: 0 1.5rem;
@@ -1525,6 +1527,13 @@ iframe {
     .radio-div {
         flex-direction: column;
         gap: 1rem;
+    }
+    .to-cart-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-info div {
+        display: none !important;
     }
 }
 
@@ -1555,7 +1564,6 @@ iframe {
         justify-content: center;
         margin: 0 auto;
     }
-
     .header-flex {
         position: fixed;
         z-index: 999;

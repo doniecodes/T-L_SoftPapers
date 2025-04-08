@@ -119,7 +119,8 @@ const SingleProduct = () => {
                         R{ packPrice === null ? item.prices[0] : packPrice }
                     </span>
                     <p className="single-product-desc">
-                        { item.description }
+                    Premium quality tissues designed for comfort, hygiene, and everyday use.
+                        {/* { item.description } */}
                     </p>
                     <div className="pack-sizes">
                         <p>select packgage: <i><small>to compare prices</small></i></p>
